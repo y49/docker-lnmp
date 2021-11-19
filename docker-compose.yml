@@ -70,24 +70,6 @@ services:
       networks:
         - net-redis
         
-  ### Tools container #########################################
-  
-  tools:
-      build:
-        context: ./build/tools
-        args:
-          TIME_ZONE: ${GLOBAL_TIME_ZONE}
-          CHANGE_SOURCE: ${GLOBAL_CHANGE_SOURCE}
-      volumes:
-        - ./data/formality/tools/start.sh:/home/start.sh:rw
-        - ./data/formality/tools/backup:/backup:rw
-        - ./data/formality/tools/cron.d:/etc/cron.d:rw
-      restart: always
-      privileged: true
-      networks:
-        - net-php
-        - net-mysql
-        - net-redis
         
 networks:
   net-php:
