@@ -13,6 +13,7 @@ services:
         - ./data/formality/nginx/config/nginx.conf:/etc/nginx/nginx.conf:ro
         - ./data/formality/nginx/config/conf.d:/etc/nginx/conf.d:ro
         - ./data/formality/nginx/log:/var/log/nginx:rw
+        - /etc/letsencrypt:/etc/nginx/ssl:ro
       
       restart: always
       privileged: true
